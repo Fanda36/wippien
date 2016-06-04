@@ -115,9 +115,9 @@ int do_child(int client_sock, struct sockaddr_in *sockaddr)
   // first we read IP/Netmask
   result = recv(client_sock, buff, sizeof(buff), 0);
 //  printf("result = %d\n", result);
-  if (result >= 2 + sizeof(unsigned long))
+  if (result >= 2 + sizeof(uint32_t))
   {
-    unsigned long *l = (unsigned long *)buff;
+    uint32_t *l = (uint32_t *)buff;
     IP.s_addr = *l;
     l++;
     Netmask.s_addr = *l;
